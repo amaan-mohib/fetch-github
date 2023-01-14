@@ -1,0 +1,31 @@
+<div>
+  <mat-grid-list cols="2" gutterSize="20px" rowHeight="1.5:1">
+    <mat-grid-tile *ngFor="let repo of repos">
+      <mat-card (click)="onClick(repo.url)" class="repo-card">
+        <mat-card-header>
+          <mat-card-title>{{ repo.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content
+          style="
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          "
+        >
+          <div>{{ repo.description }}</div>
+          <div class="topics">
+            <mat-chip-set>
+              <mat-chip *ngFor="let topic of repo.topics">
+                {{ topic }}</mat-chip
+              >
+              <mat-chip *ngIf="repo.language" color="accent">{{
+                repo.language
+              }}</mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <app-user-input
+    [searchError]="searchError"
+    (userUpdate)="fetchDetails($event)"
+  ></app-user-input>
+  <app-user-details *ngIf="user" [user]="user"></app-user-details>
+  <app-user-repos *ngIf="repos" [repos]="repos"></app-user-repos>
+</div>

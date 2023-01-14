@@ -1,0 +1,23 @@
+<div class="user-details-wrapper">
+  <img [src]="user.image" [alt]="user.name" />
+  <div class="details">
+    <div class="title">{{ user.name }}</div>
+    <div>{{ user.bio }}</div>
+    <div class="row" *ngIf="user.location">
+      <i class="material-icons">location_on</i>
+      {{ user.location }}
+    </div>
+    <div class="row" *ngIf="user.blog">
+      <i class="material-icons">article</i>
+      <a [href]="user.blog">{{ user.blog }}</a>
+    </div>
+    <div class="row" *ngIf="user.twitter_url">
+      <i class="material-icons">public</i>
+      <a [href]="user.twitter_url">{{ user.twitter_url }}</a>
+    </div>
+    <div class="row">
+      <i class="material-icons">link</i>
+      <a [href]="user.url">{{ user.url }}</a>
+    </div>
+  </div>
+</div>
