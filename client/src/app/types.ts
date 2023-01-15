@@ -20,4 +20,4 @@ export interface IRepos {
     "language": string | null,
 }
 
-export const baseURL = isDevMode() ? 'http://127.0.0.1:5000' : ''
+export const baseURL = isDevMode() ? 'http://127.0.0.1:5000' : 'https://fetch-github-production.up.railway.app'
