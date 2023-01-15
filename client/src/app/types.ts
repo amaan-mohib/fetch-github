@@ -1,3 +1,5 @@
+import { isDevMode } from "@angular/core";
+
 export interface IUser {
     "username": string,
     "name": string,
@@ -18,4 +20,4 @@ export interface IRepos {
     "language": string | null,
 }
 
-export const baseURL = 'http://127.0.0.1:5000'
+export const baseURL = isDevMode() ? 'http://127.0.0.1:5000' : ''
