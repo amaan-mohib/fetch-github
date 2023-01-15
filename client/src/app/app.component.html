@@ -3,6 +3,14 @@
     [searchError]="searchError"
     (userUpdate)="fetchDetails($event)"
   ></app-user-input>
+  <app-loader *ngIf="userLoading"></app-loader>
   <app-user-details *ngIf="user" [user]="user"></app-user-details>
-  <app-user-repos *ngIf="repos" [repos]="repos"></app-user-repos>
+  <app-loader *ngIf="reposLoading && intialLoading"></app-loader>
+  <app-user-repos
+    *ngIf="repos && user"
+    [repos]="repos"
+    [totalItems]="noOfRepos"
+    (pageUpdate)="getUserReposWithLoading(user.username, $event)"
+    [reposLoading]="reposLoading"
+  ></app-user-repos>
 </div>

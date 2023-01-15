@@ -9,7 +9,7 @@ import { IUser } from '../types';
 export class UserDetailsComponent implements OnInit {
   @Input() user!: IUser
   ngOnInit() {
-    console.log(this.user);
+    // console.log(this.user);
 
   }
 }

@@ -1,6 +1,9 @@
 <div>
+  <mat-error style="text-align: center" *ngIf="repos.length === 0">
+    No repositories found
+  </mat-error>
   <mat-grid-list cols="2" gutterSize="20px" rowHeight="1.5:1">
-    <mat-grid-tile *ngFor="let repo of repos">
+    <mat-grid-tile *ngFor="let repo of repos | paginate : paginateConfig">
       <mat-card (click)="onClick(repo.url)" class="repo-card">
         <mat-card-header>
           <mat-card-title>{{ repo.name }}</mat-card-title>
@@ -19,7 +22,7 @@
               <mat-chip *ngFor="let topic of repo.topics">
                 {{ topic }}</mat-chip
               >
-              <mat-chip *ngIf="repo.language" color="accent">{{
+              <mat-chip *ngIf="repo.language" class="language">{{
                 repo.language
               }}</mat-chip>
             </mat-chip-set>
@@ -28,4 +31,13 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+  <div class="pagination-wrapper">
+    <app-loader *ngIf="reposLoading"></app-loader>
+    <div class="spacer" *ngIf="!reposLoading"></div>
+    <pagination-controls
+      class="pagination"
+      (pageChange)="onPageChange($event)"
+      [id]="paginateConfig.id"
+    ></pagination-controls>
+  </div>
 </div>
